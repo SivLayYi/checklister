@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -43,7 +44,8 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request, Checklist $checklist)
     {
-        $checklist->tasks()->create($request->validated());
+        $position = $checklist->tasks()->max('position') + 1;
+        $checklist->tasks()->create($request->validated() + ['position' => $position]);
         return redirect()->route('admin.checklist_groups.checklists.edit',[
             $checklist->checklist_group_id, $checklist
         ]);
@@ -97,6 +99,9 @@ class TaskController extends Controller
      */
     public function destroy(Checklist $checklist, Task $task)
     {
+        $checklist->tasks()->where('position', '>', $task->position)->update(
+            ['position' => DB::raw('position - 1')]
+        );
         $task->delete();
         return redirect()->route('admin.checklist_groups.checklists.edit',[
             $checklist->checklist_group_id, $checklist
