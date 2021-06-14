@@ -10,6 +10,9 @@ class ChecklistGroup extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = ['name'];
 
     public function checklists() {

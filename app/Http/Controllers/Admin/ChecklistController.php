@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChecklistRequest;
 use App\Models\Checklist;
 use App\Models\ChecklistGroup;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 
 class ChecklistController extends Controller
 {
@@ -13,7 +18,7 @@ class ChecklistController extends Controller
      * Show the form for creating a new resource.
      *
      * @param ChecklistGroup $checklistGroup
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function create(ChecklistGroup $checklistGroup)
     {
@@ -25,7 +30,7 @@ class ChecklistController extends Controller
      *
      * @param StoreChecklistRequest $request
      * @param ChecklistGroup $checklistGroup
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(StoreChecklistRequest $request, ChecklistGroup $checklistGroup)
     {
@@ -39,7 +44,7 @@ class ChecklistController extends Controller
      *
      * @param ChecklistGroup $checklistGroup
      * @param Checklist $checklist
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|void
+     * @return Application|Factory|View|void
      */
     public function edit(ChecklistGroup $checklistGroup, Checklist $checklist)
     {
@@ -52,7 +57,7 @@ class ChecklistController extends Controller
      * @param StoreChecklistRequest $request
      * @param ChecklistGroup $checklistGroup
      * @param Checklist $checklist
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(StoreChecklistRequest $request, ChecklistGroup $checklistGroup, Checklist $checklist)
     {
@@ -65,7 +70,7 @@ class ChecklistController extends Controller
      *
      * @param ChecklistGroup $checklistGroup
      * @param Checklist $checklist
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy(ChecklistGroup $checklistGroup, Checklist $checklist)
     {

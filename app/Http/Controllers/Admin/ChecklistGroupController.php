@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChecklistGroupRequest;
 use App\Models\ChecklistGroup;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class ChecklistGroupController extends Controller
 {
@@ -22,7 +26,7 @@ class ChecklistGroupController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  StoreChecklistGroupRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(StoreChecklistGroupRequest $request)
     {
@@ -33,7 +37,7 @@ class ChecklistGroupController extends Controller
 
     /**
      * @param ChecklistGroup $checklistGroup
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function edit(ChecklistGroup $checklistGroup)
     {
@@ -45,7 +49,7 @@ class ChecklistGroupController extends Controller
      *
      * @param StoreChecklistGroupRequest $request
      * @param ChecklistGroup $checklistGroup
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(StoreChecklistGroupRequest $request, ChecklistGroup $checklistGroup)
     {
@@ -56,8 +60,8 @@ class ChecklistGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param ChecklistGroup $checklistGroup
+     * @return RedirectResponse
      */
     public function destroy(ChecklistGroup $checklistGroup)
     {
