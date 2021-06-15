@@ -3,30 +3,28 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreTaskRequest extends FormRequest
+class UpdateChecklistGroupRequest extends FormRequest
 {
-    protected $errorBag = 'storetask';
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
-    public function authorize()
+    public function authorize() : bool
     {
         return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
-     *
-     * @return array
      */
-    public function rules()
+    public function rules() : array
     {
         return [
-            'name'          => 'required',
-            'description'   => 'required',
+            'name' => [
+                'required',
+                Rule::unique('checklist_groups')->ignore($this->checklist_group),
+            ]
         ];
     }
 }

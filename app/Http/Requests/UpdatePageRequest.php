@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTaskRequest extends FormRequest
+class UpdatePageRequest extends FormRequest
 {
-    protected $errorBag = 'storetask';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,8 +24,8 @@ class StoreTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required',
-            'description'   => 'required',
+            'title'     => 'required',
+            'content'   => 'required',
         ];
     }
 }
