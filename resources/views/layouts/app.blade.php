@@ -26,20 +26,20 @@
         </button>
         <ul class="c-header-nav ml-auto mr-4">
             <li class="c-header-nav-item">
-                <a class="c-header-nav-link" href="{{route('consultation')}}">{{__('Get Consultation')}}</a>
+                <a class="c-header-nav-link" href="{{ route('consultation')}}">{{__('Get Consultation') }}</a>
             </li>
             <li class="c-header-nav-item d-md-down-none mx-2">
                 <a class="c-header-nav-link" href="{{route('welcome')}}">
                     <svg class="c-icon">
-                        <use xlink:href="{{asset('vendors/@coreui/icons/svg/free.svg#cil-settings')}}"></use>
+                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
                     </svg>
                 </a>
             </li>
-            <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#"
-                                                      role="button" aria-haspopup="true" aria-expanded="false">
+            <li class="c-header-nav-item dropdown">
+                <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <div class="c-avatar">
                         <svg class="c-icon">
-                            <use xlink:href="{{asset('vendors/@coreui/icons/svg/free.svg#cil-user')}}"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
                         </svg>
                     </div>
                 </a>
@@ -48,7 +48,7 @@
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <svg class="c-icon mr-2">
-                            <use xlink:href="{{asset('vendors/@coreui/icons/svg/free.svg#cil-account-logout')}}"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}"></use>
                         </svg>
                         {{__('Logout')}}
                     </a>

@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="content">{{__('Content')}}</label>
-                                            <textarea class="form-control" name="content" rows="5" id="task-textarea">{{$page->content}}</textarea>
+                                            <textarea class="form-control" name="content" rows="5" id="task-textarea">{!! $page->content !!}</textarea>
                                         </div>
                                     </div>
                                 </div>

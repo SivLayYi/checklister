@@ -6,20 +6,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        {{ $checklist->name }}
+                        <div class="card-body">
+                            {{ $checklist->name }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#task-textarea' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
 @endsection
